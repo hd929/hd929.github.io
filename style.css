@@ -3,19 +3,116 @@
     margin: 0;
     list-style: none;
 }
+html, body{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 2000px) {
+    .content{
+        background: white;
+        width: 90%;
+        border-radius: 5px;
+        color: black;
+        margin: auto;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    nav ul{
+        display: block;
+        margin-left: 100px;
+    }
+    nav .logo{ 
+        padding-left: 60px;
+    }
+    nav ul li a{
+        line-height: 70px;
+        padding: 9px 15px;
+    }
+    nav ul li a:hover{
+        color: cyan;
+        box-shadow: 0 0 5px #33ffff,
+                    0 0 5px #33ffff;
+    }
+    nav .logo{
+        height: 65px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .content{
+        background: white;
+        width: 90%;
+        border-radius: 5px;
+        color: black;
+        margin: auto;
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    nav ul{
+        display: none;
+        margin: 0;
+    }
+    nav .logo{
+        padding-left: 30px;
+        width: 90%;
+        height: 65px;
+    }
+    nav .logo .togge-button{
+        position: relative;
+        top: -60px; 
+    }
+    nav ul{
+        width: 100%;
+    }
+    nav ul li{
+        width: 100%;
+    }
+    nav ul li a{
+        padding: 9px 30px;
+    }
+    nav div.logo .togge-button{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    nav div.logo .togge-button .menu__{
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    nav div.logo .togge-button .menu__ span{
+        width: 1.6rem;
+        height: 3px;
+        background-color: #fff;
+        position: relative;
+    }
+    nav div.logo .togge-button .menu__ span:before,
+    nav div.logo .togge-button .menu__ span:after{
+        content: '';
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    nav div.logo .togge-button .menu__ span:before{
+        transform: translateY(-7px);
+    }
+    nav div.logo .togge-button .menu__ span:after{
+        transform: translateY(7px);
+    }
+}
 body{
     background: #444444 url(background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    width: 100%; margin: 0;
-    margin: 0;color:#222222;font:normal normal 13px Domine, Arial, Helvetica, sans-serif;line-height:1.4;margin:0;padding:0;
 }
 nav{
-    z-index: 1000;
     background: #1b1b1b;
-    width: 100%;
 }
 nav:after{
     content: '';
@@ -28,11 +125,9 @@ nav .logo{
     font-size: 27px;
     font-weight: 600;
     line-height: 70px;
-    padding-left: 60px;
 }
 nav ul{
     float: left;
-    margin-left: 100px;
 }
 nav ul li{
     display: inline-block;
@@ -40,23 +135,7 @@ nav ul li{
 }
 nav ul li a{
     color: white;
-    line-height: 70px;
     font-size: 18px;
     text-decoration: none;
-    padding: 9px 15px;
     border-radius: 5px;
-}
-nav ul li a:hover{
-    color: cyan;
-    box-shadow: 0 0 5px #33ffff,
-                0 0 5px #33ffff;
-}
-.content{
-    background: white;
-    width: 50%;
-    border-radius: 5px;
-    color: black;
-    margin: auto;
-    margin-top: 50px;
-    font-size: 20px;
 }
