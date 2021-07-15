@@ -1,141 +1,173 @@
-*{
-    padding: 0;
-    margin: 0;
-    list-style: none;
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
-html, body{
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 @media screen and (max-width: 2000px) {
-    .content{
-        background: white;
-        width: 90%;
-        border-radius: 5px;
-        color: black;
-        margin: auto;
-        margin-top: 50px;
-        font-size: 20px;
-    }
-    nav ul{
-        display: block;
-        margin-left: 100px;
-    }
-    nav .logo{ 
-        padding-left: 60px;
-    }
-    nav ul li a{
-        line-height: 70px;
-        padding: 9px 15px;
-    }
-    nav ul li a:hover{
-        color: cyan;
-        box-shadow: 0 0 5px #33ffff,
-                    0 0 5px #33ffff;
-    }
-    nav .logo{
-        height: 65px;
-    }
+  .content {
+    background: white;
+    width: 90%;
+    border-radius: 5px;
+    color: black;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+  nav ul {
+    display: block;
+    margin-left: 100px;
+  }
+  nav .logo {
+    padding-left: 60px;
+  }
+  nav ul li a {
+    line-height: 70px;
+    padding: 9px 15px;
+  }
+  nav ul li a:hover {
+    color: cyan;
+    box-shadow: 0 0 5px #33ffff, 0 0 5px #33ffff;
+  }
+  nav .logo {
+    height: 65px;
+  }
 }
 @media screen and (max-width: 800px) {
-    .content{
-        background: white;
-        width: 90%;
-        border-radius: 5px;
-        color: black;
-        margin: auto;
-        margin-top: 50px;
-        font-size: 20px;
-    }
-    nav ul{
-        display: none;
-        margin: 0;
-    }
-    nav .logo{
-        padding-left: 30px;
-        width: 90%;
-        height: 65px;
-    }
-    nav .logo .togge-button{
-        position: relative;
-        top: -60px; 
-    }
-    nav ul{
-        width: 100%;
-    }
-    nav ul li{
-        width: 100%;
-    }
-    nav ul li a{
-        padding: 9px 30px;
-    }
-    nav div.logo .togge-button{
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-    }
-    nav div.logo .togge-button .menu__{
-        width: 2.5rem;
-        height: 2.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    nav div.logo .togge-button .menu__ span{
-        width: 1.6rem;
-        height: 3px;
-        background-color: #fff;
-        position: relative;
-    }
-    nav div.logo .togge-button .menu__ span:before,
-    nav div.logo .togge-button .menu__ span:after{
-        content: '';
-        position: absolute;
-        width: inherit;
-        height: inherit;
-        background-color: #fff;
-        border-radius: 3px;
-    }
-    nav div.logo .togge-button .menu__ span:before{
-        transform: translateY(-7px);
-    }
-    nav div.logo .togge-button .menu__ span:after{
-        transform: translateY(7px);
-    }
-}
-body{
-    background: #444444 url(background.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-nav{
-    background: #1b1b1b;
-}
-nav:after{
-    content: '';
-    clear: both;
-    display: table;
-}
-nav .logo{
-    float: left;
-    color: white;
-    font-size: 27px;
-    font-weight: 600;
-    line-height: 70px;
-}
-nav ul{
-    float: left;
-}
-nav ul li{
-    display: inline-block;
-    background: #1b1b1b;
-}
-nav ul li a{
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
+  .content {
+    background: white;
+    width: 90%;
     border-radius: 5px;
+    color: black;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 20px;
+  }
+  nav ul {
+    display: none;
+    margin: 0;
+  }
+  nav .logo {
+    padding-left: 30px;
+    width: 90%;
+    height: 65px;
+  }
+  nav .logo .togge-button {
+    position: relative;
+    top: -60px;
+  }
+  nav ul {
+    width: 100%;
+  }
+  nav ul li {
+    width: 100%;
+  }
+  nav ul li a {
+    padding: 9px 30px;
+  }
+  nav div.logo .togge-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  nav div.logo .togge-button .menu__ {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  nav div.logo .togge-button .menu__ span {
+    width: 1.6rem;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+  }
+  nav div.logo .togge-button .menu__ span:before,
+  nav div.logo .togge-button .menu__ span:after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #fff;
+    border-radius: 3px;
+  }
+  nav div.logo .togge-button .menu__ span:before {
+    transform: translateY(-7px);
+  }
+  nav div.logo .togge-button .menu__ span:after {
+    transform: translateY(7px);
+  }
+}
+body {
+  background: #444444 url(background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+nav {
+  background: #1b1b1b;
+}
+nav:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+nav .logo {
+  float: left;
+  color: white;
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 70px;
+}
+nav ul {
+  float: left;
+}
+nav ul li {
+  display: inline-block;
+  background: #1b1b1b;
+}
+nav ul li a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.load {
+  width: 100%;
+  height: 100%;
+  background-color: #00b8ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+.load i {
+  color: #fff;
+  top: 50%;
+  margin-top: -50px;
+  font-size: 80px;
+  animation: loading 1.5s linear infinite;
+}
+@keyframes loading {
+  0% {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
