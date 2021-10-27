@@ -30,8 +30,9 @@
             <input
               type="email"
               name="Email"
-              placeholder="Email của bạn"
+              placeholder="Email của bạn *"
               class="form-control"
+              required
             />
             <i class="fas fa-envelope"></i>
           </div>
@@ -41,8 +42,9 @@
             <input
               type="text"
               name="tên trang bị lỗi"
-              placeholder="Tên hoặc link trang bị lỗi"
+              placeholder="Tên hoặc link trang bị lỗi *"
               class="form-control"
+              required
             />
             <i class="fas fa-globe"></i>
           </div>
@@ -51,7 +53,7 @@
           <textarea
             name="mô tả lỗi"
             class="form-description"
-            placeholder="Mô tả"
+            placeholder="Mô tả *"
             required
           ></textarea>
           <i class="material-icons">message</i>
@@ -63,6 +65,5 @@
       </form>
     </div>
     <script src="./script.js"></script>
-    <script src="push-to-google-sheets.js"></script>
   </body>
 </html>

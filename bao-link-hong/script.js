@@ -1,4 +1,10 @@
+const formName = document.querySelector('form input[name="Name"]');
+const formEmail = document.querySelector('form input[name="Email"]');
+const formNameSiteError = document.querySelector(
+  'form input[name="tên trang bị lỗi"]'
+);
 const formDescription = document.querySelector("textarea.form-description");
+
 formDescription.addEventListener("keyup", (e) => {
   formDescription.style.height = "126px";
   let scHeight = e.target.scrollHeight;
@@ -23,6 +29,12 @@ form.addEventListener("submit", (e) => {
     .then((response) => {
       statusTxt.style.color = "#2eff00";
       statusTxt.innerText = "Đã gửi thành công";
+
+      // set empty input
+      formName.value = "";
+      formEmail.value = "";
+      formNameSiteError.value = "";
+      formDescription.value = "";
     })
     .catch((error) => {
       statusTxt.style.color = "#ff0000";
