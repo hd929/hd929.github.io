@@ -64,6 +64,19 @@
         </div>
       </form>
     </div>
-    <script src="./script.js"></script>
+    <script src="../options.js"></script>
+    <script>
+    pushToSheet({
+      scriptURL: "https://script.google.com/macros/s/AKfycbyc-y73BEn-agTRvC0jO8cRLoXs6V2ZQlRPM7rernD79fsDzuDn7Ekhug1vC016xOESBw/exec",
+      formName: "google-sheet",
+      statusTxt: ".button-area span"
+    },
+    [
+      "input[name='Name']",
+      "input[name='Email']",
+      "input[name='tên trang bị lỗi']",
+    ]
+    );
+    </script>
   </body>
 </html>
