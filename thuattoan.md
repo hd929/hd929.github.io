@@ -2,12 +2,41 @@
 
 # Thuật toán
 
+- [Sắp xếp nổi bọt](#sxnoibot)
 - [Quicksort](#quicksort)
 - [Sàng nguyên tố](#nto)
 
+<h2 id="sxnoibot">Sắp xếp nổi bọt</h2>
+
+### Sắp xếp tăng dần
+
+```pascaligo
+for i:=1 to n-1 do
+  for j:=i+1 to n do
+    if a[i]>a[j] then
+    begin
+      tam:=a[i];
+      a[i]:=a[j];
+      a[j]:=tam;
+    end;
+```
+
+### Xắp xếp giảm dần
+
+```pascaligo
+for i:=1 to n-1 do
+  for j:=i+1 to n do
+    if a[i]<a[j] then
+    begin
+      tam:=a[i];
+      a[i]:=a[j];
+      a[j]:=tam;
+    end;
+```
+
 <h2 id="quicksort">Quicksort (Sắp xếp nhanh)</h2>
 
-Sắp xếp tăng dần
+### Sắp xếp tăng dần
 
 ```pascaligo
 procedure sort(l,r:longint);
@@ -33,7 +62,7 @@ begin
 end;
 ```
 
-Sắp xếp giảm dần
+### Sắp xếp giảm dần
 
 Đổi
 
