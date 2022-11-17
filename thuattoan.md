@@ -2,6 +2,10 @@
 
 # Thuật toán
 
+<div class="search search-math">
+  <input type="text" placeholder="Tìm thuật toán" />
+</div>
+
 - [Sắp xếp nổi bọt](#sxnoibot)
 - [Quicksort](#quicksort)
 - [Sàng nguyên tố](#nto)

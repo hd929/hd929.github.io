@@ -1,3 +1,59 @@
 body {
   color: #c0caf5;
 }
+
+.markdown-body pre {
+  background-color: #16161e;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.markdown-body ul {
+  list-style: none;
+}
+
+.markdown-body ul li a {
+  position: relative;
+  color: #7aa2f7;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 10px;
+  background: #16161e;
+  border-radius: 10px;
+}
+
+.markdown-body ul li a:hover {
+  background: #7aa2f7;
+  color: #16161e;
+}
+
+li + li {
+  margin-top: 25px;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body .search {
+  margin-left: 2px;
+  max-width: 50%;
+}
+
+.markdown-body .search input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  background-color: #16161e;
+  outline: none;
+  border: 1px solid transparent;
+  caret-color: #7aa2f7;
+  color: #c0caf5;
+}
+
+.markdown-body .search input:focus {
+  border-color: #7aa2f7;
+}
