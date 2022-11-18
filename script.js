@@ -3,6 +3,7 @@ const zeroMd = document.querySelector('zero-md')
 zeroMd.addEventListener('zero-md-rendered', () => {
   const searchMathInput = document.querySelector('.search-math input')
   const mathList = document.querySelectorAll('ul')
+  const searchClear = document.querySelector('.search-clear')
 
   function removeAccents(str) {
     var AccentsMap = [
@@ -43,6 +44,18 @@ zeroMd.addEventListener('zero-md-rendered', () => {
         } else {
           liElem.style.display = 'none'
         }
+      })
+    })
+  })
+
+  searchClear.addEventListener('click', () => {
+    searchMathInput.value = ''
+
+    Array.from(mathList).map((elem) => {
+      const leElements = elem.querySelectorAll('li')
+
+      Array.from(leElements).map((liElem) => {
+        liElem.style.display = 'block'
       })
     })
   })
