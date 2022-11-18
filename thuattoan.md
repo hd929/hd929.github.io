@@ -2,6 +2,13 @@
 
 # Thuật toán
 
+<div class="search search-math">
+  <input type="text" placeholder="Tìm thuật toán" />
+  <a class="search-clear">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+  </a>
+</div>
+
 - [Sắp xếp nổi bọt](#sxnoibot)
 - [Quicksort](#quicksort)
 - [Sàng nguyên tố](#nto)
