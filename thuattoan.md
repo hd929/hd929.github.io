@@ -13,9 +13,9 @@
 - [Quicksort](#quicksort)
 - [Sàng nguyên tố](#nto)
 
-<h2 id="sxnoibot">Sắp xếp nổi bọt</h2>
+<h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
-### Sắp xếp tăng dần
+## Sắp xếp tăng dần
 
 ```pascaligo
 for i:=1 to n-1 do
@@ -28,7 +28,7 @@ for i:=1 to n-1 do
     end;
 ```
 
-### Xắp xếp giảm dần
+## Xắp xếp giảm dần
 
 ```pascaligo
 for i:=1 to n-1 do
@@ -41,9 +41,9 @@ for i:=1 to n-1 do
     end;
 ```
 
-<h2 id="quicksort">Quicksort (Sắp xếp nhanh)</h2>
+<h1 id="quicksort">Quicksort (Sắp xếp nhanh)</h1>
 
-### Sắp xếp tăng dần
+## Sắp xếp tăng dần
 
 ```pascaligo
 procedure sort(l,r:longint);
@@ -69,7 +69,7 @@ begin
 end;
 ```
 
-### Sắp xếp giảm dần
+## Sắp xếp giảm dần
 
 Đổi
 
@@ -85,7 +85,7 @@ Thành
   while x>a[j] then dec(j);
 ```
 
-<h2 id="nto">Sàng nguyên tố</h2>
+<h1 id="nto">Sàng nguyên tố</h1>
 
 ```pascaligo
 function nto(a:longint):boolean;
