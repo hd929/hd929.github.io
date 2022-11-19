@@ -11,7 +11,12 @@
 
 - [Sắp xếp nổi bọt](#sxnoibot)
 - [Quicksort](#quicksort)
+- [Kiểm tra số nguyên tố](#ktsonto)
 - [Sàng nguyên tố](#nto)
+- [Số đẹp](#sodep)
+- [Số nhỏ nhì](#sonhonhi)
+- [Số nhỏ thứ k](#sonthuk)
+- [Mảng 2 chiều](#nxmang2c)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -85,6 +90,23 @@ Thành
   while x>a[j] then dec(j);
 ```
 
+<h1 id="ktsonto">Kiểm tra số nguyên tố</h1>
+
+```pascaligo
+function nto(a:longint):boolean;
+var i:longint;
+begin
+  if a<=1 then exit(false);
+  if (a=2) or (a=3) then exit(true);
+
+  for i:=2 to trunc(sqrt(a)) do
+    if a mod i = 0 then exit(false)
+
+  exit(true)
+end;
+
+```
+
 <h1 id="nto">Sàng nguyên tố</h1>
 
 ```pascaligo
@@ -104,4 +126,123 @@ begin
 
   exit(true);
 end;
+```
+
+<h1 id="sodep">Số đẹp</h1>
+
+```pascaligo
+function sodep(a:longint):boolean;
+var tong,x:longint;
+begin
+  tong:=0;
+
+  while a>0 do
+  begin
+    x:=a mod 10;
+    tong:=tong+x;
+    a:=a div 10;
+  end;
+
+  if tong=10 then exit(true);
+  exit(false);
+end;
+```
+
+<h1 id="sonhonhi">Số nhỏ nhì</h1>
+
+```pascaligo
+var min1, min2,i,n:longint;
+    a:array[1..10000000] of longint;
+
+begin
+  read(n);
+  for i:=1 to n do read(a[i]);
+
+  min1:=high(longint);
+  min2:=high(longint);
+
+  for i:=1 to n do
+    if a[i]<min1 then min1:=a[i];
+
+  for i:=1 to n do
+    if (a[i]<min2) and (a[i] <> min1) then min2:=a[i];
+
+  write(min2);
+end.
+
+```
+
+<h1 id="sonthuk">Số nhỏ thứ k</h1>
+
+```pascaligo
+var n,k,i:longint;
+    a:array[1..100000000] of longint;
+
+// Sắp xếp nhanh
+procedure sort(l,r:longint);
+var i,j,x,y:longint;
+begin
+  i:=l; j:=r;
+  x:=a[(l+r) div 2];
+  repeat
+
+    // tìm số nhỏ thứ k
+    while a[i]<x do inc(i);
+    while x<a[j] do dec(j);
+
+    // tìm số lớn thứ k thì đổi thành
+    while a[i]>x do inc(i);
+    while x>a[j] do dec(j);
+
+    if i<=j then
+    begin
+      y:=a[i];
+      a[i]:=a[j];
+      a[j]:=y;
+      inc(i); dec(j)
+    end;
+  until i>j;
+  if l<j then sort(l, j);
+  if i<r then sort(i, r)
+end;
+begin
+  // độ dài mảng
+  read(n);
+
+  // vị trí thứ k
+  read(k);
+
+  // đọc mảng
+  for i:=1 to n do read(a[i]);
+
+  // sắp xếp
+  sort(1, k);
+  write(a[k]);
+end.
+```
+
+<h1 id="nxmang2c">Nhập xuất mảng hai chiều</h1>
+
+```pascaligo
+var n,m,i,j:longint;
+    a:array[1..100, 1..100] of longint;
+
+begin
+  read(n, m);
+
+  // nhập mảng
+  for i:=1 to n do
+    for j:=1 to m do
+      read(a[i,j]);
+
+  //xuất mảng
+  for i:=1 to n do
+  begin
+    for j:=1 to m do
+      write(a[i,j], ' ');
+
+    // hết hàng xuống dòng
+    writeln();
+  end;
+end.
 ```
