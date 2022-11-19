@@ -14,7 +14,16 @@ pre {
 
 ul {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  grid-auto-columns: minmax(250px, auto);
+  grid-row-gap: 20px;
+  padding-left: 2px;
 }
+
+/* li + li {
+  margin-left: 10px;
+} */
 
 ul li a {
   position: relative;
@@ -29,10 +38,6 @@ ul li a {
 ul li a:hover {
   background: #7aa2f7;
   color: #16161e;
-}
-
-li + li {
-  margin-top: 25px;
 }
 
 pre {
@@ -83,7 +88,11 @@ pre {
   color: #16161e;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 390px) {
+  ul {
+    grid-template-columns: 90%;
+    grid-row-gap: 20px;
+  }
   .search {
     width: 80%;
   }
