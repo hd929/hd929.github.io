@@ -1,5 +1,6 @@
 :root {
   --foreground-color: #c0caf5;
+  --primary-color: #7aa2f7;
 }
 
 html {
@@ -29,12 +30,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #7aa2f7;
+  background-color: var(--primary-color);
   border-radius: 10px;
 }
 
 .btt-btn {
-  background: #7aa2f7;
+  background: var(--primary-color);
   color: #1f2335;
   position: fixed;
   width: 50px;

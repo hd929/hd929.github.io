@@ -1,9 +1,13 @@
+:root {
+  --primary-color: #7aa2f7;
+}
+
 body {
   color: #c0caf5;
 }
 
 h1 {
-  color: #7aa2f7;
+  color: var(--primary-color);
 }
 
 pre {
@@ -27,7 +31,7 @@ ul {
 
 ul li a {
   position: relative;
-  color: #7aa2f7;
+  color: var(--primary-color);
   text-decoration: none;
   font-size: 25px;
   padding: 10px;
@@ -36,7 +40,7 @@ ul li a {
 }
 
 ul li a:hover {
-  background: #7aa2f7;
+  background: var(--primary-color);
   color: #16161e;
 }
 
@@ -58,14 +62,14 @@ pre {
   background-color: #16161e;
   outline: none;
   border: 1px solid transparent;
-  caret-color: #7aa2f7;
+  caret-color: var(--primary-color);
   color: #c0caf5;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 
 .search input:focus {
-  border-color: #7aa2f7;
+  border-color: var(--primary-color);
 }
 
 .search svg {
@@ -74,17 +78,17 @@ pre {
 }
 
 .search .search-clear {
-  color: #7aa2f7;
+  color: var(--primary-color);
   cursor: pointer;
   width: 50px;
-  height: 40px;
+  height: 41px;
   background: #16161e;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
 .search .search-clear:hover {
-  background: #7aa2f7;
+  background: var(--primary-color);
   color: #16161e;
 }
 

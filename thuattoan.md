@@ -17,6 +17,11 @@
 - [Số nhỏ nhì](#sonhonhi)
 - [Số nhỏ thứ k](#sonthuk)
 - [Mảng 2 chiều](#nxmang2c)
+- [Số lần xuất hiện](#slxh)
+- [Tìm UCLN của 2 số](#ucln)
+- [Tìm BCNN của 2 số](#bcnn)
+- [Ước của 1 số](#uoc)
+- [Chuẩn hóa xâu](#chxau)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -245,4 +250,96 @@ begin
     writeln();
   end;
 end.
+```
+
+<h1 id="uoc">Ước của 1 số</h1>
+
+```pascaligo
+var i,n:longint;
+
+begin
+  read(n)
+
+  for i:=1 to (n div 2) do
+  begin
+    if n mod i = 0 then write(i, ' ');
+  end;
+end;
+```
+
+<h1 id="ucln">Tìm UCLN</h1>
+
+```pascaligo
+function uoc(a,b:longint):longint;
+var du:longint;
+begin
+  while b>0 do
+  begin
+    du:=a mod b;
+    a:=b;
+    b:=du;
+  end;
+  uoc:=a;
+end;
+```
+
+<h1 id="bcnn">Tìm BCNN</h1>
+
+```pascaligo
+function bcnn(a,b:longint):longint;
+var tam,c,d:longint;
+begin
+  c:=a; d:=b;
+  while b>0 do
+  begin
+    tam:=a mod b;
+    a:=b;
+    b:=tam;
+  end;
+  bcnn:=c*(d div a);
+end;
+```
+
+<h1 id="slxh">Số lần xuất hiện của phần tử bằng đếm phân phối (10^6)</h1>
+
+```pascaligo
+uses crt;
+var i,j,k,kt,dem,n:longint; a:array[1..1000]of longint;
+begin
+  clrscr;
+  write('nhap so phan tu trong mang:');readln(n);
+  for i:=1 to n do begin write('a[',i,']='); readln(a[i]); end;
+  for i:=1 to n do
+  begin
+    kt:=1;
+    for j:=1 to i-1 do if(a[j]=a[i])then kt:=0;
+      if(kt=1)then
+      begin
+        dem:=0;
+        for k:=1 to n do if(a[i]=a[k])then inc(dem);
+        writeln('phan tu ',a[i],' trong mang duoc lap lai ',dem,' lan');
+      end;
+  end;
+
+  readln();
+end.
+```
+
+<h1 id="chxau">Chuẩn hóa xâu</h1>
+
+```pascaligo
+// thuật toán chuẩn hóa xâu
+var s:string;
+begin
+  read(s);
+
+  // Xóa kí tự trắng đầu dòng
+  while (s[1]=' ') do delete(s, 1, 1);
+
+  // Xóa kí tự trắng cuối dòng
+  while (s[length(s)]=' ') do delete(s, length(s), 1)
+
+  // Xóa kí tự trắng cạnh nhau
+  while (pos('  ', s)>0) do delete(s, pos('  ', s), 1)
+end;
 ```
