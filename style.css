@@ -3,6 +3,10 @@
   --primary-color: #7aa2f7;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-scroll-behavior: smooth;

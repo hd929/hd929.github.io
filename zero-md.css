@@ -81,7 +81,7 @@ pre {
   color: var(--primary-color);
   cursor: pointer;
   width: 50px;
-  height: 41px;
+  height: 40px;
   background: #16161e;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -97,6 +97,7 @@ pre {
     grid-template-columns: 90%;
     grid-row-gap: 20px;
   }
+
   .search {
     width: 80%;
   }

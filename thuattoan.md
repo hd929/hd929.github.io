@@ -22,6 +22,7 @@
 - [Tìm BCNN của 2 số](#bcnn)
 - [Ước của 1 số](#uoc)
 - [Chuẩn hóa xâu](#chxau)
+- [Sinh dãy nhị phân](#sdnp)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -342,4 +343,41 @@ begin
   // Xóa kí tự trắng cạnh nhau
   while (pos('  ', s)>0) do delete(s, pos('  ', s), 1)
 end;
+```
+
+<h1 id="sdnp">Sinh dãy nhị phân</h1>
+
+```pascaligo
+uses math;
+var n,i,k:longint;
+a:array[0..27] of byte;
+procedure print();
+var d:longint;
+begin
+  d:=0;
+  for i:= 1 to n do
+  if a[i]=1 then inc(d);
+  if d<=k then
+  begin
+    for i:= 1 to n do
+    write(a[i]);
+    writeln();
+  end;
+end;
+procedure pps(x:longint);
+var j:byte;
+begin
+  for j:= 0 to 1 do
+  begin
+    a[x]:=j;
+    if x=n then print() else pps(x+1);
+  end;
+end;
+begin
+  assign(input,'quantran.inp'); reset(input);
+  assign(output.'quantran.out'); rewrite(output);
+  read(n,k);
+  pps(1);
+  close(input); close(output);
+end.
 ```
