@@ -301,6 +301,18 @@ begin
 end;
 ```
 
+## Sort
+
+```pascaligo
+function bcnn(a,b:longint):longint;
+var i:longint;
+begin
+  i:=1;
+  while a*i mod b <> 0 do inc(i);
+  exit(a*i);
+end;
+```
+
 <h1 id="slxh">Số lần xuất hiện của phần tử bằng đếm phân phối (10^6)</h1>
 
 ```pascaligo
