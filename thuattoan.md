@@ -23,6 +23,8 @@
 - [Ước của 1 số](#uoc)
 - [Chuẩn hóa xâu](#chxau)
 - [Sinh dãy nhị phân](#sdnp)
+- [Thập phân -> nhị phân](#tpnp)
+- [Nhị phân -> thập phân](#nptp)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -392,4 +394,47 @@ begin
   pps(1);
   close(input); close(output);
 end.
+```
+
+<h1 id="tpnp">Thập phân -> nhị phân</h2>
+
+```pascaligo
+var i,j,n:longint;
+    a:array[1..1000000] of longint;
+
+begin
+  readln(n);
+  i:=1;
+
+  repeat
+  begin
+    a[i]:=n mod 2;
+    n:=n div 2;
+
+    if n=0 then break
+    else inc(i);
+  end;
+  until n=0;
+
+  for j:=i downto 1 do write(a[j]);
+end.
+```
+
+<h1 id="nptp">Nhị phân -> thập phân</h1>
+
+```pascaligo
+var i,p,he10:longint;
+
+begin
+  readln(s);
+
+  he10:=0;
+  p:=1;
+
+  for i:=length(s) downto 1 do
+  begin
+    if s[i]='1' then inc(he10, p);
+    p:=p*2;
+  end;
+end;
 ```
