@@ -25,6 +25,7 @@
 - [Sinh dãy nhị phân](#sdnp)
 - [Thập phân -> nhị phân](#tpnp)
 - [Nhị phân -> thập phân](#nptp)
+- [Hoán vị chữ số](#hvcs)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -437,4 +438,60 @@ begin
     p:=p*2;
   end;
 end;
+```
+
+<h1 id="hvcs">Hoán vị chữ số</h1>
+
+```pascaligo
+uses math;
+var s:string;
+    i,j,p,q:byte;
+
+procedure suly();
+var i:byte;
+begin
+  for i:=1 to length(s) do
+    write(s[i], ' ');
+
+  writeln();
+end;
+
+procedure dao(var a, b:char);
+var t:char;
+begin
+  t:=a;
+  a:=b;
+  b:=t;
+end;
+
+begin
+  assign(input, 'hoanviso.inp'); reset(input);
+  assign(output, 'hoanviso.out'); rewrite(output);
+
+  readln(s);
+
+  i:=length(s)-1;
+
+  while i>0 do
+  begin
+    suly();
+
+    while (i>0) and (s[i]>s[i+1]) do dec(i);
+    if i>0 then
+    begin
+      j:=length(s);
+      while s[j]<s[i] do dec(j);
+      dao(s[j], s[i]);
+      p:=i+1;q:=length(s);
+
+      while p<q do
+      begin
+        dao(s[p], s[q]);
+        inc(p); dec(q);
+      end;
+    end;
+  end;
+
+  close(input); close(output);
+end.
 ```
