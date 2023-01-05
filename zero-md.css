@@ -25,10 +25,6 @@ ul {
   padding-left: 2px;
 }
 
-/* li + li {
-  margin-left: 10px;
-} */
-
 ul li a {
   position: relative;
   color: var(--primary-color);
