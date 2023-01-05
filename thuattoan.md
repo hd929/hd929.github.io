@@ -25,6 +25,7 @@
 - [Sinh dãy nhị phân](#sdnp)
 - [Thập phân -> nhị phân](#tpnp)
 - [Nhị phân -> thập phân](#nptp)
+- [Hoán vị chữ số](#hvcs)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -437,4 +438,10 @@ begin
     p:=p*2;
   end;
 end;
+```
+
+<h1 id="hvcs">Hoán vị chữ số</h1>
+
+```pascaligo
+
 ```
