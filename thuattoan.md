@@ -28,6 +28,7 @@
 - [Hoán vị chữ số](#hvcs)
 - [Hoán vị chữ](#hoanvichu)
 - [Đếm ước](#dem-uoc)
+- [Tìm kiếm nhị phân](#tknp)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -563,4 +564,22 @@ Begin
  End;
  Exit(dem); // exit(s);
 End
+```
+
+<h1 id="tknp">Tìm kiếm nhị phân</h1>
+
+```pascaligo
+Function Tknpcb(X: longint): longint;
+ Var d, c, g: Longint;
+ Begin
+ d := 1; c := N;
+ While d <= c Do
+ Begin
+ g := (d + c) Div 2;
+if A[g] = X then exit(g);
+ if A[g] < X then d := g+1 else c := g-1;
+ End;
+ Exit(0);
+ End;
+
 ```
