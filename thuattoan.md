@@ -18,7 +18,7 @@
 - [Số nhỏ thứ k](#sonthuk)
 - [Mảng 2 chiều](#nxmang2c)
 - [Số lần xuất hiện](#slxh)
-- [Tìm UCLN của 2 số](#ucln)
+- [UCLN của 2 số](#ucln)
 - [Tìm BCNN của 2 số](#bcnn)
 - [Ước của 1 số](#uoc)
 - [Chuẩn hóa xâu](#chxau)
@@ -27,6 +27,7 @@
 - [Nhị phân -> thập phân](#nptp)
 - [Hoán vị chữ số](#hvcs)
 - [Hoán vị chữ](#hoanvichu)
+- [Đếm ước](#dem-uoc)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -544,4 +545,22 @@ while i>0 do
 
   close(input); close(output);
   end.
+```
+
+<h1 id="dem-uoc">Đếm ước</h1>
+
+```pascaligo
+Function demuoc(u: longint) : longint;
+Var i, dem: longint;
+Begin
+ Dem:=0;
+ For i:= 1 to trunc(sqrt(u)) do
+ If u mod i = 0 then
+ Begin
+ dem := dem + 1; //nếu tính tổng ước S:=S + i;
+ if i <> u div i then 
+ dem := dem + 1; //nếu tính tổng ước S:= S + u div i;
+ End;
+ Exit(dem); // exit(s);
+End
 ```
