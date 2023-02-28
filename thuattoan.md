@@ -554,15 +554,17 @@ while i>0 do
 Function demuoc(u: longint) : longint;
 Var i, dem: longint;
 Begin
- Dem:=0;
- For i:= 1 to trunc(sqrt(u)) do
- If u mod i = 0 then
- Begin
- dem := dem + 1; //nếu tính tổng ước S:=S + i;
- if i <> u div i then 
- dem := dem + 1; //nếu tính tổng ước S:= S + u div i;
- End;
- Exit(dem); // exit(s);
+  Dem:=0;
+  
+  For i:= 1 to trunc(sqrt(u)) do
+  If u mod i = 0 then
+  Begin
+    dem := dem + 1; //nếu tính tổng ước S:=S + i;
+    if i <> u div i then 
+    dem := dem + 1; //nếu tính tổng ước S:= S + u div i;
+  End;
+  
+  Exit(dem); // exit(s);
 End
 ```
 
@@ -570,16 +572,18 @@ End
 
 ```pascaligo
 Function Tknpcb(X: longint): longint;
- Var d, c, g: Longint;
- Begin
- d := 1; c := N;
- While d <= c Do
- Begin
- g := (d + c) Div 2;
-if A[g] = X then exit(g);
- if A[g] < X then d := g+1 else c := g-1;
- End;
- Exit(0);
- End;
+Var d, c, g: Longint;
+Begin
+  d := 1; c := N;
+
+  While d <= c Do
+  Begin
+    g := (d + c) Div 2;
+    if A[g] = X then exit(g);
+    if A[g] < X then d := g+1 else c := g-1;
+  End;
+
+  Exit(0);
+End;
 
 ```
