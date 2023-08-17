@@ -28,6 +28,8 @@
 - [Hoán vị chữ số](#hvcs)
 - [Hoán vị chữ](#hoanvichu)
 - [Đếm ước](#dem-uoc)
+- [Tính mũ (Lũy thừa)](#tinh-lt)
+- [Tổng ước](#tong-uoc)
 - [Tìm kiếm nhị phân](#tknp)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
@@ -551,20 +553,40 @@ while i>0 do
 <h1 id="dem-uoc">Đếm ước</h1>
 
 ```pascaligo
-Function demuoc(u: longint) : longint;
+function demuoc(u: longint) : longint;
 Var i, dem: longint;
 Begin
-  Dem:=0;
-  
+  dem:=0;
+
   For i:= 1 to trunc(sqrt(u)) do
   If u mod i = 0 then
   Begin
     dem := dem + 1; //nếu tính tổng ước S:=S + i;
-    if i <> u div i then 
+    if i <> u div i then
     dem := dem + 1; //nếu tính tổng ước S:= S + u div i;
   End;
-  
-  Exit(dem); // exit(s);
+
+  exit(dem); // exit(s);
+End
+```
+
+<h1 id="tong-uoc">Tổng ước</h1>
+
+```pascaligo
+Function tonguoc(u: longint) : longint;
+Var i, s: longint;
+Begin
+  dem:=0;
+
+  For i:= 1 to trunc(sqrt(u)) do
+  if u mod i = 0 then
+  Begin
+    s:=s + i;
+    if i <> u div i then
+      s:= s + u div i;
+  End;
+
+  exit(s);
 End
 ```
 
@@ -586,4 +608,15 @@ Begin
   Exit(0);
 End;
 
+```
+
+```pascaligo
+function lt(a:longint, b:longint):longint;
+var i,tich:longint;
+begin
+  for i:=1 to b do
+    tich:=tich*a;
+
+  exit(tich);
+end;
 ```
