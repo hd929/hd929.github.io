@@ -10,7 +10,7 @@
 </div>
 
 - [Sắp xếp nổi bọt](#sxnoibot)
-- [Quicksort](#quicksort)
+- [Sắp xếp nhanh](#quicksort)
 - [Kiểm tra số nguyên tố](#ktsonto)
 - [Sàng nguyên tố](#nto)
 - [Số đẹp](#sodep)
@@ -609,6 +609,8 @@ Begin
 End;
 
 ```
+
+<h1 id="tinh-lt">Tính lũy thừa (Tính mũ)</h1>
 
 ```pascaligo
 function lt(a:longint, b:longint):longint;

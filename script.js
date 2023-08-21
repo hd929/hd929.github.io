@@ -62,13 +62,10 @@ zeroMd.addEventListener('zero-md-rendered', () => {
 
   searchClear.addEventListener('click', () => {
     searchMathInput.value = ''
+    const mathNodeList = mathList.querySelectorAll('li')
 
-    Array.from(mathList).map((elem) => {
-      const leElements = elem.querySelectorAll('li')
-
-      Array.from(leElements).map((liElem) => {
-        liElem.style.display = 'block'
-      })
+    Array.from(mathNodeList).map((elem) => {
+        elem.style.display = 'block'
     })
   })
 })
