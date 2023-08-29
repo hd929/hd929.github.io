@@ -31,6 +31,7 @@
 - [Tính mũ (Lũy thừa)](#tinh-lt)
 - [Tổng ước](#tong-uoc)
 - [Tìm kiếm nhị phân](#tknp)
+- [Đảo số](#dao-so)
 
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
@@ -620,5 +621,18 @@ begin
     tich:=tich*a;
 
   exit(tich);
+end;
+```
+
+```pascaligo
+function dao(a:longint):longint;
+begin
+  while a>0 do
+  begin
+    so:=so*10+a mod 10;
+    a:=a div 10;
+  end;
+
+  exit(so);
 end;
 ```
