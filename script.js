@@ -2,7 +2,6 @@ const zeroMd = document.querySelector('zero-md')
 
 zeroMd.addEventListener('zero-md-rendered', () => {
   const searchMathInput = document.querySelector('.search-math input')
-  const mathList = document.querySelector('ul')
   const searchClear = document.querySelector('.search-clear')
 
   function removeAccents(str) {
@@ -34,11 +33,13 @@ zeroMd.addEventListener('zero-md-rendered', () => {
   }
 
   searchMathInput.addEventListener('input', () => {
-    const mathNodeList = mathList.querySelectorAll('li')
+    const mathNodeList = document.querySelectorAll('.code')
     const searchValue = removeAccents(searchMathInput.value.toLocaleLowerCase())
 
     Array.from(mathNodeList).map((math) => {
-      let mathName = removeAccents(math.textContent.toLocaleLowerCase())
+      let mathName = removeAccents(
+        math.querySelector('h1').textContent.toLocaleLowerCase()
+      )
 
       function invalidSearch() {
         let preIndex = 0
@@ -62,10 +63,10 @@ zeroMd.addEventListener('zero-md-rendered', () => {
 
   searchClear.addEventListener('click', () => {
     searchMathInput.value = ''
-    const mathNodeList = mathList.querySelectorAll('li')
+    const mathNodeList = document.querySelectorAll('.code')
 
     Array.from(mathNodeList).map((elem) => {
-        elem.style.display = 'block'
+      elem.style.display = 'block'
     })
   })
 })

@@ -14,38 +14,6 @@ pre {
   background-color: #16161e;
   padding: 10px;
   border-radius: 10px;
-}
-
-ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
-  grid-auto-columns: minmax(400px, auto);
-  grid-row-gap: 20px;
-  padding-left: 2px;
-}
-
-ul li a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--primary-color);
-  text-decoration: none;
-  font-size: 25px;
-  padding: 20px auto;
-  width: 95%;
-  height: 100%;
-  background: #16161e;
-  border-radius: 10px;
-}
-
-ul li a:hover {
-  background: var(--primary-color);
-  color: #16161e;
-}
-
-pre {
   overflow: auto;
 }
 
@@ -94,11 +62,6 @@ pre {
 }
 
 @media only screen and (max-width: 390px) {
-  ul {
-    grid-template-columns: 90%;
-    grid-row-gap: 20px;
-  }
-
   .search {
     width: 80%;
   }
