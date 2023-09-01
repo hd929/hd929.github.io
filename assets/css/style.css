@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono", sans-serif;
+  background-color: #0d1b2a;
+}
+
+.profile {
+  display: flex;
+  width: 80%;
+  min-height: 500px;
+  background-color: #1b263b;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.profile__avatar {
+  margin-right: 15px;
+}
+
+.profile__avatar img {
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.profile__about {
+  border-radius: 10px;
+  background-color: #415a77;
+  width: 100%;
+  height: 300px;
+  padding: 15px;
+}
+
+.profile__about-item {
+  color: #e0e1dd;
+  font-size: 20px;
+  height: 2.5rem;
+}
+
+.profile__about-highlight {
+  display: inline-block;
+  font-weight: 700;
+  padding: 4px;
+  background-color: var(--bg);
+  color: #001219;
+  border-radius: 6px;
+  margin: 2px 0;
+}
+
+.list-page {
+  border-radius: 10px;
+  width: 60%;
+  min-height: 400px;
+  margin: 0 auto;
+  margin-top: -80px;
+  background-color: #415A77;
+  padding: 20px;
+}
+
+.page {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #003049;
+  color: #fdf0d5;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin: 5px;
+}
+
+.page:hover {  
+  background-color: #669bbc;
+  transition: background-color 0.2s;
+}
