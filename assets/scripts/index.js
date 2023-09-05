@@ -3,12 +3,8 @@ const pauseBtn = document.querySelector('.pause-btn')
 const avatar = document.querySelector('.profile__avatar img')
 
 const lobbySong = new Audio('/assets/sounds/bluearchive-01.mp3')
-const hoshinoAudio1 = new Audio(
-  'https://static.miraheze.org/bluearchivewiki/e/e1/Hoshino_LogIn_1.ogg'
-)
-const hoshinoAudio2 = new Audio(
-  'https://static.miraheze.org/bluearchivewiki/f/ff/Hoshino_LogIn_2.ogg'
-)
+const hoshinoAudio1 = new Audio('/assets/sounds/Hoshino_LogIn_1.mp3')
+const hoshinoAudio2 = new Audio('/assets/sounds/Hoshino_LogIn_2.mp3')
 
 lobbySong.loop = true
 lobbySong.volume = 0.5
