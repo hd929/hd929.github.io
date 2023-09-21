@@ -8,7 +8,8 @@
 
 body {
   font-family: 'Roboto Mono', sans-serif;
-  background-color: #1e2025;
+  background-image: url('../imgs/night_of_red_by_xmrfel_dfuinu2.jpg');
+  background-size: cover;
 }
 
 .profile {
