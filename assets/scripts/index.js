@@ -11,12 +11,12 @@ lobbySong.volume = 0.5
 let firstPlay = false
 let isPlaying = false
 
-document.addEventListener('click', () => {
-  if (!firstPlay) {
-    lobbySong.play()
-    firstPlay = true
-  }
-})
+// document.addEventListener('click', () => {
+//   if (!firstPlay) {
+//     lobbySong.play()
+//     firstPlay = true
+//   }
+// })
 
 playBtn.addEventListener('click', () => {
   lobbySong.play()
