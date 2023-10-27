@@ -92,13 +92,6 @@ body {
   text-wrap: nowrap;
 }
 
-.profile__about-action {
-  margin-top: 25px;
-  color: #fdf0d5;
-  font-weight: bold;
-  font-size: 20px;
-}
-
 .page:hover {
   background-color: #669bbc;
   transition: background-color 0.2s;
