@@ -995,7 +995,7 @@ Prism.languages.clike = {
       ],
       keyword: {
         pattern:
-          /(^|[^&])\b(?:begin|block|case|const|else|end|fail|for|from|function|procedure|if|is|nil|of|remove|return|skip|then|type|var|while|repeat|until|with)\b/i,
+          /(^|[^&])\b(?:begin|block|case|const|else|end|fail|for|from|function|procedure|if|is|nil|of|remove|to|do|return|skip|then|type|var|while|repeat|until|with)\b/i,
         lookbehind: !0,
       },
       boolean: { pattern: /(^|[^&])\b(?:False|True)\b/i, lookbehind: !0 },

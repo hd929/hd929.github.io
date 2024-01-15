@@ -9,10 +9,15 @@
   </a>
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="sxnoibot">Sắp xếp nổi bọt</h1>
 
 ## Sắp xếp tăng dần
+
+<div class="code">
+
+<button class="switch-pas">Pascal</button>
+<button class="switch-cpp">C++</button>
 
 ```pascaligo
 for i:=1 to n-1 do
@@ -25,8 +30,23 @@ for i:=1 to n-1 do
     end;
 ```
 
+```cpp
+for (int i = 0; i<n; i++)
+  for (int j = 0; j<n; j++)
+  {
+    if (a[i]>a[j]) {
+      int temp = a[i];
+      a[i] = a[j];
+      a[j] = temp;
+    }
+  }
+```
+
+</div>
 
 ## Xắp xếp giảm dần
+
+<div class="code">
 
 ```pascaligo
 for i:=1 to n-1 do
@@ -38,12 +58,27 @@ for i:=1 to n-1 do
       a[j]:=tam;
     end;
 ```
+
+```cpp
+for (int i = 0; i<n; i++)
+  for (int j = 0; j<n; j++)
+    if (a[i]<a[j])
+    {
+      int temp = a[i];
+      a[i] = a[j];
+      a[j] = temp;
+    }
+```
+
+</div>
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="quicksort">Quicksort (Sắp xếp nhanh)</h1>
 
 ## Sắp xếp tăng dần
+
+<div class="code">
 
 ```pascaligo
 procedure sort(l,r:longint);
@@ -69,24 +104,71 @@ begin
 end;
 ```
 
+```cpp
+void sort(int arr[], int l, int r) {
+  int i = l, j = r;
+  int x = arr[(l + r) / 2];
+  while (i < j) {
+    while (arr[i] < x)
+      i++;
+    while (x < arr[j])
+      j--;
+    if (i <= j) {
+      swap(arr[i], arr[j]);
+      i++;
+      j--;
+    }
+  }
+
+  if (l < j)
+    sort(l, j);
+  if (i < r)
+    sort(i, r);
+}
+```
+
+</div>
+
 ## Sắp xếp giảm dần
 
-Đổi
+**Đổi**
+
+<div class="code">
 
 ```pascaligo
   while a[i]<x then inc(i);
   while x<a[j] then dec(j);
 ```
 
-Thành
+```cpp
+while (arr[i] < x)
+  i++;
+while (x < arr[j])
+  j--;
+```
+
+</div>
+
+**Thành**
+
+<div class="code">
 
 ```pascaligo
   while a[i]>x then inc(i);
   while x>a[j] then dec(j);
 ```
+
+```cpp
+while (arr[i] > x)
+  i++;
+while (x > arr[j])
+  j--;
+```
+
+</div>
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="ktsonto">Kiểm tra số nguyên tố</h1>
 
 ```pascaligo
@@ -103,9 +185,10 @@ begin
 end;
 
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="nto">Sàng nguyên tố</h1>
 
 ```pascaligo
@@ -126,9 +209,10 @@ begin
   exit(true);
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="sodep">Số đẹp</h1>
 
 ```pascaligo
@@ -148,9 +232,10 @@ begin
   exit(false);
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="sonhonhi">Số nhỏ nhì</h1>
 
 ```pascaligo
@@ -173,9 +258,10 @@ begin
   write(min2);
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="sonthuk">Số nhỏ thứ k</h1>
 
 ```pascaligo
@@ -224,9 +310,10 @@ begin
   write(a[k]);
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="nxmang2c">Nhập xuất mảng hai chiều</h1>
 
 ```pascaligo
@@ -252,9 +339,10 @@ begin
   end;
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="uoc">Ước của 1 số</h1>
 
 ```pascaligo
@@ -269,9 +357,10 @@ begin
   end;
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="ucln">Tìm UCLN</h1>
 
 ```pascaligo
@@ -287,9 +376,10 @@ begin
   uoc:=a;
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="bcnn">Tìm BCNN</h1>
 
 ```pascaligo
@@ -318,9 +408,10 @@ begin
   exit(a*i);
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="slxh">Số lần xuất hiện của phần tử bằng đếm phân phối (10^6)</h1>
 
 ```pascaligo
@@ -345,9 +436,10 @@ begin
   readln();
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="chxau">Chuẩn hóa xâu</h1>
 
 ```pascaligo
@@ -366,9 +458,10 @@ begin
   while (pos('  ', s)>0) do delete(s, pos('  ', s), 1)
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="sdnp">Sinh dãy nhị phân</h1>
 
 ```pascaligo
@@ -405,9 +498,10 @@ begin
   close(input); close(output);
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="tpnp">Thập phân -> nhị phân</h2>
 
 ```pascaligo
@@ -431,9 +525,10 @@ begin
   for j:=i downto 1 do write(a[j]);
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="nptp">Nhị phân -> thập phân</h1>
 
 ```pascaligo
@@ -452,9 +547,10 @@ begin
   end;
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="hvcs">Hoán vị chữ số</h1>
 
 ```pascaligo
@@ -510,9 +606,10 @@ begin
   close(input); close(output);
 end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id='hoanvichu'>Hoán vị chữ</h1>
 
 ```pascaligo
@@ -561,9 +658,10 @@ while i>0 do
   close(input); close(output);
   end.
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="dem-uoc">Đếm ước</h1>
 
 ```pascaligo
@@ -583,9 +681,10 @@ Begin
   exit(dem); // exit(s);
 End
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="tong-uoc">Tổng ước</h1>
 
 ```pascaligo
@@ -605,9 +704,10 @@ Begin
   exit(s);
 End
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="tknp">Tìm kiếm nhị phân</h1>
 
 ```pascaligo
@@ -627,9 +727,10 @@ Begin
 End;
 
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1 id="tinh-lt">Tính lũy thừa (Tính mũ)</h1>
 
 ```pascaligo
@@ -642,9 +743,10 @@ begin
   exit(tich);
 end;
 ```
+
 </div>
 
-<div class="code">
+<div class="blockcode">
 <h1>Đảo số</h1>
 
 ```pascaligo

@@ -15,6 +15,7 @@ pre {
   padding: 10px;
   border-radius: 10px;
   overflow: auto;
+  margin-top: 0;
 }
 
 .search {
@@ -71,4 +72,46 @@ pre {
   .search {
     width: 50%;
   }
+}
+
+.code.active pre:last-child {
+  display: block;
+}
+
+.code.active > pre {
+  display: none;
+}
+
+.code.active button:first-child {
+  background-color: #16161e;
+  color: #c0caf5;
+}
+.code.active button:last-child {
+  background-color: #7aa2f7;
+  color: #16161e;
+}
+
+.code button:first-child {
+  margin-left: 20px;
+  background-color: #7aa2f7;
+  color: #16161e;
+}
+
+.code button:last-child {
+  margin-left: -4px;
+}
+
+.code button {
+  padding: 6px 32px;
+  cursor: pointer;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  background-color: #16161e;
+  color: #c0caf5;
+  font-weight: bold;
+}
+
+.code pre:last-child {
+  display: none;
 }
