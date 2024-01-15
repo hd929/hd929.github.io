@@ -1,8 +1,12 @@
 const zeroMd = document.querySelector('zero-md')
+let codeC, codePas
 
 zeroMd.addEventListener('zero-md-rendered', () => {
   const searchMathInput = document.querySelector('.search-math input')
   const searchClear = document.querySelector('.search-clear')
+  const switchPas = document.querySelector('.switch-pas')
+  const switchCpp = document.querySelector('.switch-cpp')
+  const codeList = document.querySelectorAll('.code')
 
   function removeAccents(str) {
     var AccentsMap = [
@@ -33,7 +37,7 @@ zeroMd.addEventListener('zero-md-rendered', () => {
   }
 
   searchMathInput.addEventListener('input', () => {
-    const mathNodeList = document.querySelectorAll('.code')
+    const mathNodeList = document.querySelectorAll('.blockcode')
     const searchValue = removeAccents(searchMathInput.value.toLocaleLowerCase())
 
     Array.from(mathNodeList).map((math) => {
@@ -67,6 +71,18 @@ zeroMd.addEventListener('zero-md-rendered', () => {
 
     Array.from(mathNodeList).map((elem) => {
       elem.style.display = 'block'
+    })
+  })
+
+  // Switch Code Language
+  switchPas.addEventListener('click', () => {
+    Array.from(codeList).map((code) => {
+      code.classList.remove('active')
+    })
+  })
+  switchCpp.addEventListener('click', () => {
+    Array.from(codeList).map((code) => {
+      code.classList.add('active')
     })
   })
 })
