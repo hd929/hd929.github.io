@@ -191,25 +191,50 @@ end;
 <div class="blockcode">
 <h1 id="nto">Sàng nguyên tố</h1>
 
+**Với pascal thì chỉ chạy được với n <= 10^6**
+
+<div class="code">
+
 ```pascaligo
-function nto(a:longint):boolean;
-var i:longint;
+var f:array[1..1000000] of boolean;
+
+procedure snto(n:longint);
+var i,j:longint;
 begin
-  if a<2 then exit(false);
-  if (a=2) or (a=3) then exit(true);
-  if ((a mod 2)=0) or ((a mod 3)=0) then exit(false);
-
-  i:=5;
-  while i*i<=a do
+  for i:=0 to 1000000 do 
+    f[i]:=1;
+  f[0]:=0; f[1]:=0;
+  i:=1; j:=1;
+  while (i*i<=n) do
   begin
-    if ((a mod i)=0) or ((a mod i+2)=0) then exit(false);
-    inc(i,6);
+    if f[i] = 1 then
+    begin
+      j:=i*i;
+      while (j <= n) do
+      begin
+        f[j]:=0;
+        j:=j + i;
+      end;
+    end;
+    inc(i);
   end;
-
-  exit(true);
 end;
 ```
 
+```cpp
+bool f[N]
+void snto(int n)
+{
+    memset(f, 1, sizeof(f));
+    f[0] = f[1] = 0;
+    for (int i = 2; i*i <= n; i++)
+        if(f[i])
+            for (int j = i * i; j <= n; j += i)
+                f[j] = 0;
+}
+```
+
+</div>
 </div>
 
 <div class="blockcode">
