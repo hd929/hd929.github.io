@@ -171,21 +171,47 @@ while (x > arr[j])
 <div class="blockcode">
 <h1 id="ktsonto">Kiểm tra số nguyên tố</h1>
 
+<div class="code">
+
 ```pascaligo
 function nto(a:longint):boolean;
 var i:longint;
 begin
   if a<=1 then exit(false);
   if (a=2) or (a=3) then exit(true);
-
-  for i:=2 to trunc(sqrt(a)) do
-    if a mod i = 0 then exit(false)
+  if (a mod 2 = 0) or (a mod 3 = 0) then exit(false);
+  
+  i:=5;
+  while (i*i<=n) do
+  begin 
+    if (a mod i = 0) or (a mod (i+2) = 0) then
+      exit(false);
+    inc(i, 6);
+  end;
 
   exit(true)
 end;
 
 ```
 
+```cpp
+bool nto(int n)
+{
+  if (n < 2)
+    return 0;
+  if (n == 2 || n == 3)
+    return 1;
+  if (n % 2 == 0 || n % 3 == 0)
+    return 0;
+
+  for (int i = 1; i*i<=n; i++)
+    if (n % i == 0 || n % (i+2) == 0)
+      return 0;
+  return 1;
+}
+```
+
+</div>
 </div>
 
 <div class="blockcode">
