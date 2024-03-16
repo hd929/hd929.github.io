@@ -67,7 +67,7 @@ zeroMd.addEventListener('zero-md-rendered', () => {
 
   searchClear.addEventListener('click', () => {
     searchMathInput.value = ''
-    const mathNodeList = document.querySelectorAll('.code')
+    const mathNodeList = document.querySelectorAll('.blockcode')
 
     Array.from(mathNodeList).map((elem) => {
       elem.style.display = 'block'

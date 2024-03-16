@@ -761,6 +761,8 @@ End
 <div class="blockcode">
 <h1 id="tknp">Tìm kiếm nhị phân</h1>
 
+<div class="code">
+
 ```pascaligo
 Function Tknpcb(X: longint): longint;
 Var d, c, g: Longint;
@@ -779,6 +781,25 @@ End;
 
 ```
 
+```cpp
+bool tknp(int n, int k)
+{
+  int i = 0, j = n, mid;
+  while (i <= j)
+  {
+    if (a[i] == k)\
+      return 1;
+    mid = (i+j) / 2;
+    if (a[mid]>k)
+      j = mid-1;
+    else
+      i = mid+1;
+  }
+  return 0;
+}
+```
+
+</div>
 </div>
 
 <div class="blockcode">
@@ -812,5 +833,30 @@ begin
   exit(so);
 end;
 ```
+
+</div>
+
+<div class="blockcode">
+<h1>a^b mod c</h1>
+
+<div class="code">
+
+```pascaligo 
+*update*
+```
+```cpp
+ll amnb(ll a, ll b)
+{
+  if (b == 0)
+    return 1;
+  if (b == 1)
+    return a;
+  ll t = amnb(a, b / 2);
+
+  return t * ((t * amnb(a, b % 2)) % c) % c;
+}
+```
+
+</div>
 
 </div>
