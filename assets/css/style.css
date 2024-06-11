@@ -129,10 +129,11 @@ body {
     object-position: top;
   }
   .list-page {
-    margin-top: 20px;
+    margin: 20px auto;
   }
 
   .page {
     margin-top: 10px;
+    width: 100%;
   }
 }
