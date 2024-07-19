@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Roboto Mono', sans-serif;
-  background-image: url('../imgs/night_of_red_by_xmrfel_dfuinu2.jpg');
+  /* background-image: url('../imgs/night_of_red_by_xmrfel_dfuinu2.jpg'); */
   background-size: cover;
 }
 
@@ -80,7 +80,7 @@ body {
   display: inline-flex;
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #5A7480;
+  background-color: #5a7480;
   color: #fdf0d5;
   border-radius: 5px;
   font-size: 20px;
