@@ -74,16 +74,6 @@ pre {
   }
 }
 
-a {
-  color: #0077b6;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 code {
   color: var(--primary-color);
   padding: 2px 4px;
