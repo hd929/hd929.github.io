@@ -119,20 +119,27 @@ body {
   .profile {
     display: flex;
     flex-direction: column;
+    width: 90%;
   }
+
   .profile__avatar {
     margin: 0 auto;
   }
+
   .profile__avatar img {
     width: 200px;
     height: 250px;
     object-position: top;
   }
+
   .list-page {
+    width: 90%;
     margin: 20px auto;
   }
 
   .page {
+    display: flex;
+    justify-content: center;
     margin-top: 10px;
     width: 100%;
   }
