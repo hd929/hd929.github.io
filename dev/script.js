@@ -1,4 +1,9 @@
-let page = document.getElementById('content')
+let page = document.getElementById('content');
+
+// Initialize the page content on load
+window.addEventListener('DOMContentLoaded', () => {
+  changePage('algorithm/list');
+});
 
 function changePage(dir) {
   page.innerHTML = `
@@ -35,5 +40,5 @@ function changePage(dir) {
         />
       </template>
     </zero-md>
- `
+  `;
 }
