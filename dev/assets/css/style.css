@@ -247,6 +247,7 @@ zero-md tr:nth-child(even) {
 }
 
 zero-md a {
+  cursor: pointer;
   color: var(--primary-color);
   text-decoration: none;
   transition: all 0.3s ease;
