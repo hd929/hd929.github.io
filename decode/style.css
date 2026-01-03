@@ -1,0 +1,59 @@
+.decode-box {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.decode-box h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.decode-input {
+  display: flex;
+  gap: 10px;
+}
+
+.decode-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.decode-input input::placeholder {
+  color: #aaa;
+}
+
+.decode-input button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #79a1f7;
+  color: #000;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.decode-input button:hover {
+  background: #5f8cff;
+}
+
+.decode-result {
+  margin-top: 15px;
+  padding: 10px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  word-break: break-all;
+  font-size: 14px;
+}
