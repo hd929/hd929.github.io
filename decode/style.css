@@ -1,3 +1,8 @@
+body {
+  background-color: #333;
+  height: 100vh;
+}
+
 .decode-box {
   max-width: 500px;
   margin: 40px auto;
@@ -56,4 +61,9 @@
   border-radius: 8px;
   word-break: break-all;
   font-size: 14px;
+}
+
+.link {
+  color: #79a1f7;
+    font-size: 20px;
 }

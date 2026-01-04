@@ -3,7 +3,7 @@ function decodeLink() {
   const result = document.getElementById("result");
 
   try {
-    result.textContent = decodeURIComponent(input);
+    result.innerHTML = `<a class="link" target="_blank" href="${decodeURIComponent(input)}">${decodeURIComponent(input)}</a>`;
   } catch (e) {
     result.textContent = "Link không hợp lệ!";
   }
