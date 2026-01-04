@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Decode</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body style="background-color: #333">
+    <div class="decode-box">
+      <h2>URL Decoder</h2>
+      <div class="decode-input">
+        <input
+          type="text"
+          id="inputLink"
+          placeholder="Nhập link đã mã hóa (https%3A%2F%2F...)"
+        />
+        <button onclick="decodeLink()">Decode</button>
+      </div>
+      <div class="decode-result" id="result"></div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
