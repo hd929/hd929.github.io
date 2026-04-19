@@ -1,58 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hd929 Page</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
 
-  <body>
-    <div class="profile">
-      <div class="profile__avatar">
-        <img src="./assets/imgs/IMG_0667.JPG" />
-      </div>
-      <div class="profile__about">
-        <div class="profile__about-list">
-          <div class="profile__about-column">
-            <div class="profile__about-item">
-              <strong>Name:</strong>
-              <span>P3nguinkyun</span>
-            </div>
-            <div class="profile__about-item">
-              <strong>About:</strong>
-              <span>Linux user (Arch)</span>
-            </div>
-            <div class="profile__about-item">
-              <strong>Facebook:</strong>
-              <a
-                class="link-btn"
-                target="_blank"
-                href="https://facebook.com/handuy.otaku"
-                >handuy.otaku</a
-              >
-            </div>
-            <div class="profile__about-item">
-              <strong>Languages program:</strong>
-              <span class="profile__about-highlight" style="--bg: #79a1f7">
-                C++
-              </span>
-              <span class="profile__about-highlight" style="--bg: #ff9e63">
-                Javascript
-              </span>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="P3nguinkyun's Personal Portfolio and Projects. Passionate Linux user and developer." />
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Default CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>P3nguinkyun | Portfolio</title>
+</head>
+
+<body>
+  <!-- Abstract animated background -->
+  <div class="blob-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container fade-in">
+
+    <!-- Profile Section -->
+    <section class="profile" id="vanilla-tilt-card">
+      <div class="profile__inner">
+        <div class="profile__avatar-container">
+          <div class="profile__avatar">
+            <img src="./assets/imgs/IMG_0028.JPG" alt="P3nguinkyun's Avatar" />
+            <div class="profile__status" title="Online"></div>
+          </div>
+        </div>
+
+        <div class="profile__content">
+          <h1 class="profile__name">P3nguinkyun</h1>
+          <h2 class="profile__role">
+            <i class="fa-brands fa-linux"></i> Linux user (Arch)
+          </h2>
+
+          <p class="profile__bio">
+            Welcome to my digital space. I'm passionate about development, open-source, and exploring new technologies.
+          </p>
+
+          <div class="profile__skills">
+            <span class="skill-tag" style="--accent: #7aa2f7; --bg: rgba(122, 162, 247, 0.1);">
+              <i class="fa-solid fa-code"></i> C++
+            </span>
+            <span class="skill-tag" style="--accent: #e0af68; --bg: rgba(224, 175, 104, 0.1);">
+              <i class="fa-brands fa-js"></i> JavaScript
+            </span>
+          </div>
+
+          <div class="profile__social">
+            <a class="social-btn" target="_blank" href="https://facebook.com/handuy.otaku" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="social-btn" target="_blank" href="https://github.com/hd929" aria-label="Github">
+              <i class="fa-brands fa-github"></i>
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="list-page">
-      <a class="page" href="/dev">Dev</a>
-      <!-- <a class="page" href="/Web-Wibu">Web Wibu</a> -->
-      <a class="page" href="/Shopee-Clone-F8">Shopee Pha kè</a>
-      <a class="page" href="/MP3-Player">Music Player</a>
-      <a class="page" href="/decode">Decode</a>
-    </div>
-    <script src="./assets/scripts/index.js"></script>
-  </body>
+    <!-- Projects Section -->
+    <nav class="projects-grid" aria-label="Project Links">
+      <a class="project-card" href="/dev" style="--card-color: #7aa2f7">
+        <div class="project-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="project-info">
+          <h3>Dev</h3>
+          <p>Development corner</p>
+        </div>
+        <i class="fa-solid fa-arrow-right project-arrow"></i>
+      </a>
+
+      <a class="project-card" href="/Shopee-Clone-F8" style="--card-color: #f7768e">
+        <div class="project-icon"><i class="fa-solid fa-store"></i></div>
+        <div class="project-info">
+          <h3>Shopee Pha kè</h3>
+          <p>E-commerce UI Clone</p>
+        </div>
+        <i class="fa-solid fa-arrow-right project-arrow"></i>
+      </a>
+
+      <a class="project-card" href="/MP3-Player" style="--card-color: #9ece6a">
+        <div class="project-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="project-info">
+          <h3>Music Player</h3>
+          <p>Interactive web player</p>
+        </div>
+        <i class="fa-solid fa-arrow-right project-arrow"></i>
+      </a>
+
+      <a class="project-card" href="/decode" style="--card-color: #bb9af7">
+        <div class="project-icon"><i class="fa-solid fa-lock-open"></i></div>
+        <div class="project-info">
+          <h3>Decode</h3>
+          <p>Encryption/Decryption tools</p>
+        </div>
+        <i class="fa-solid fa-arrow-right project-arrow"></i>
+      </a>
+    </nav>
+
+  </main>
+
+  <!-- Custom Scripts -->
+  <script src="./assets/scripts/index.js"></script>
+</body>
+
 </html>
