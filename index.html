@@ -21,12 +21,12 @@
 </head>
 
 <body>
-  <!-- Abstract animated background -->
-  <div class="blob-bg">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
+  <!-- Particle animated background -->
+  <canvas id="particle-canvas"></canvas>
+  <div class="ambient-glow"></div>
+
+  <!-- Cursor glow effect -->
+  <div class="cursor-glow" id="cursor-glow"></div>
 
   <!-- Main Content -->
   <main class="container fade-in">
@@ -44,7 +44,8 @@
         <div class="profile__content">
           <h1 class="profile__name">P3nguinkyun</h1>
           <h2 class="profile__role">
-            <i class="fa-brands fa-linux"></i> Linux user (Arch)
+            <i class="fa-brands fa-linux"></i>
+            <span id="typing-text"></span><span class="typing-cursor"></span>
           </h2>
 
           <p class="profile__bio">
@@ -57,6 +58,15 @@
             </span>
             <span class="skill-tag" style="--accent: #e0af68; --bg: rgba(224, 175, 104, 0.1);">
               <i class="fa-brands fa-js"></i> JavaScript
+            </span>
+            <span class="skill-tag" style="--accent: #3572A5; --bg: rgba(53, 114, 165, 0.1);">
+              <i class="fa-brands fa-python"></i> Python
+            </span>
+            <span class="skill-tag" style="--accent: #f7768e; --bg: rgba(247, 118, 142, 0.1);">
+              <i class="fa-brands fa-html5"></i> HTML/CSS
+            </span>
+            <span class="skill-tag" style="--accent: #9ece6a; --bg: rgba(158, 206, 106, 0.1);">
+              <i class="fa-brands fa-linux"></i> Linux
             </span>
           </div>
 
@@ -72,9 +82,15 @@
       </div>
     </section>
 
+    <!-- Section Title -->
+    <div class="section-header reveal">
+      <h2><i class="fa-solid fa-rocket"></i> Projects</h2>
+      <div class="section-line"></div>
+    </div>
+
     <!-- Projects Section -->
     <nav class="projects-grid" aria-label="Project Links">
-      <a class="project-card" href="/dev" style="--card-color: #7aa2f7">
+      <a class="project-card reveal" href="/dev" style="--card-color: #7aa2f7">
         <div class="project-icon"><i class="fa-solid fa-laptop-code"></i></div>
         <div class="project-info">
           <h3>Dev</h3>
@@ -83,7 +99,7 @@
         <i class="fa-solid fa-arrow-right project-arrow"></i>
       </a>
 
-      <a class="project-card" href="/Shopee-Clone-F8" style="--card-color: #f7768e">
+      <a class="project-card reveal" href="/Shopee-Clone-F8" style="--card-color: #f7768e">
         <div class="project-icon"><i class="fa-solid fa-store"></i></div>
         <div class="project-info">
           <h3>Shopee Pha kè</h3>
@@ -92,7 +108,7 @@
         <i class="fa-solid fa-arrow-right project-arrow"></i>
       </a>
 
-      <a class="project-card" href="/MP3-Player" style="--card-color: #9ece6a">
+      <a class="project-card reveal" href="/MP3-Player" style="--card-color: #9ece6a">
         <div class="project-icon"><i class="fa-solid fa-music"></i></div>
         <div class="project-info">
           <h3>Music Player</h3>
@@ -101,7 +117,7 @@
         <i class="fa-solid fa-arrow-right project-arrow"></i>
       </a>
 
-      <a class="project-card" href="/decode" style="--card-color: #bb9af7">
+      <a class="project-card reveal" href="/decode" style="--card-color: #bb9af7">
         <div class="project-icon"><i class="fa-solid fa-lock-open"></i></div>
         <div class="project-info">
           <h3>Decode</h3>
@@ -112,6 +128,11 @@
     </nav>
 
   </main>
+
+  <!-- Footer -->
+  <footer class="footer reveal">
+    <p>Built with <span class="footer__heart">❤️</span> by <a href="https://github.com/hd929" target="_blank">P3nguinkyun</a></p>
+  </footer>
 
   <!-- Custom Scripts -->
   <script src="./assets/scripts/index.js"></script>
