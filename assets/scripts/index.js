@@ -143,8 +143,9 @@ if (cursorGlow) {
 const typingEl = document.getElementById('typing-text');
 const phrases = [
   'Linux user (Arch)',
-  'Open-source lover',
-  'Full-stack dev',
+  'Open-source advocate',
+  'Full-stack developer',
+  'C++ & JS enthusiast',
   'Coffee & Code ☕'
 ];
 let phraseIndex = 0;
