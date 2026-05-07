@@ -1,26 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Decode</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Decoder</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
 
-  <body style="background-color: #333">
-    <div class="decode-box">
-      <h2>URL Decoder</h2>
-      <div class="decode-input">
-        <input
-          type="text"
-          id="inputLink"
-          placeholder="Nhập link đã mã hóa (https%3A%2F%2F...)"
-        />
-        <button onclick="decodeLink()">Decode</button>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <h1>URL Decoder</h1>
+        <p class="subtitle">Dán link đã mã hóa và nhận kết quả ngay lập tức</p>
       </div>
-      <div class="decode-result" id="result"></div>
+
+      <div class="input-group">
+        <div class="input-wrapper">
+          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+            <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+            <path d="M2.5 8.5h19"/>
+            <path d="M2.5 15.5h19"/>
+          </svg>
+          <input
+            type="text"
+            id="inputLink"
+            placeholder="Nhập link đã mã hóa (https%3A%2F%2F...)"
+            autocomplete="off"
+          />
+          <button class="clear-btn" id="clearBtn" title="Xóa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m15 9-6 6"/>
+              <path d="m9 9 6 6"/>
+            </svg>
+          </button>
+        </div>
+        <button class="decode-btn" id="decodeBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m7 7 10 10"/>
+            <path d="M17 7v10H7"/>
+          </svg>
+          Giải mã
+        </button>
+      </div>
+
+      <div class="result-area" id="resultArea">
+        <div class="result-placeholder" id="resultPlaceholder">
+          <svg class="result-placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+            <polyline points="13 2 13 9 20 9"/>
+          </svg>
+          <span>Kết quả sẽ hiển thị ở đây</span>
+        </div>
+        <div class="result-content" id="resultContent">
+          <span class="result-text" id="resultText"></span>
+          <button class="copy-btn" id="copyBtn" title="Sao chép">
+            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="result-error" id="resultError">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <span id="errorText"></span>
+        </div>
+      </div>
+
+      <div class="history-section" id="historySection">
+        <div class="history-header">
+          <h3>Lịch sử</h3>
+          <button class="clear-history-btn" id="clearHistoryBtn">Xóa tất cả</button>
+        </div>
+        <div class="history-list" id="historyList"></div>
+        <div class="history-empty" id="historyEmpty">
+          <span>Chưa có lịch sử giải mã</span>
+        </div>
+      </div>
     </div>
 
-    <script src="./script.js"></script>
-  </body>
+    <div class="toast" id="toast">
+      <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <span class="toast-msg" id="toastMsg"></span>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
 </html>
