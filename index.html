@@ -1,81 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="P3nguinkyun — Full-stack developer, Linux enthusiast & open-source advocate. Building performant software from C++ to the web. Explore my projects." />
+  
+  <!-- SEO & Social -->
+  <meta name="author" content="P3nguinkyun" />
+  <meta name="theme-color" content="#1a1b26" />
+  <meta property="og:title" content="P3nguinkyun | Portfolio" />
+  <meta property="og:description" content="Full-stack developer, Linux enthusiast & open-source advocate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ajitana.me/" />
+  <meta property="og:image" content="https://ajitana.me/assets/imgs/IMG_0028.JPG" />
+  <link rel="canonical" href="https://ajitana.me/" />
+
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fonts -->
+  <!-- DNS Prefetch for CDN -->
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Fonts — subset only needed weights -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@600&display=swap"
     rel="stylesheet" />
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Default CSS -->
+
+  <!-- Font Awesome — only brands + solid we actually use -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </noscript>
+
+  <!-- Critical CSS inlined for first paint -->
+  <style>
+    /* Critical above-fold styles to prevent FOUC */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,sans-serif;background:#1a1b26;color:#c0caf5;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow-x:hidden}
+    .container{width:100%;max-width:1000px;padding:40px 20px;display:flex;flex-direction:column;gap:40px;z-index:1;position:relative}
+  </style>
+
+  <!-- Main CSS — async load -->
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>P3nguinkyun | Portfolio</title>
 </head>
 
 <body>
+  <!-- Skip to content — accessibility -->
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- Particle animated background -->
-  <canvas id="particle-canvas"></canvas>
-  <div class="ambient-glow"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="ambient-glow" aria-hidden="true"></div>
 
   <!-- Cursor glow effect -->
-  <div class="cursor-glow" id="cursor-glow"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
   <!-- Main Content -->
-  <main class="container fade-in">
+  <main id="main-content" class="container fade-in">
 
     <!-- Profile Section -->
-    <section class="profile" id="vanilla-tilt-card">
+    <section class="profile" id="vanilla-tilt-card" aria-label="Profile">
       <div class="profile__inner">
         <div class="profile__avatar-container">
           <div class="profile__avatar">
-            <img src="./assets/imgs/IMG_0028.JPG" alt="P3nguinkyun's Avatar" />
-            <div class="profile__status" title="Online"></div>
+            <img src="./assets/imgs/IMG_0028.JPG" alt="P3nguinkyun's Avatar"
+                 width="200" height="200" loading="eager" decoding="async" fetchpriority="high" />
+            <div class="profile__status" title="Online" aria-label="Online status"></div>
           </div>
         </div>
 
         <div class="profile__content">
           <h1 class="profile__name">P3nguinkyun</h1>
           <h2 class="profile__role">
-            <i class="fa-brands fa-linux"></i>
-            <span id="typing-text"></span><span class="typing-cursor"></span>
+            <i class="fa-brands fa-linux" aria-hidden="true"></i>
+            <span id="typing-text" aria-label="Linux user (Arch)"></span><span class="typing-cursor" aria-hidden="true"></span>
           </h2>
 
           <p class="profile__bio">
             Full-stack developer and Linux enthusiast. I build clean, performant software — from low-level C++ to modern web applications. Open-source believer, Arch Linux user, and lifelong learner.
           </p>
 
-          <div class="profile__skills">
-            <span class="skill-tag" style="--accent: #7aa2f7; --bg: rgba(122, 162, 247, 0.1);">
-              <i class="fa-solid fa-code"></i> C++
+          <div class="profile__skills" role="list" aria-label="Skills">
+            <span class="skill-tag" role="listitem" style="--accent: #7aa2f7; --bg: rgba(122, 162, 247, 0.1);">
+              <i class="fa-solid fa-code" aria-hidden="true"></i> C++
             </span>
-            <span class="skill-tag" style="--accent: #e0af68; --bg: rgba(224, 175, 104, 0.1);">
-              <i class="fa-brands fa-js"></i> JavaScript
+            <span class="skill-tag" role="listitem" style="--accent: #e0af68; --bg: rgba(224, 175, 104, 0.1);">
+              <i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript
             </span>
-            <span class="skill-tag" style="--accent: #3572A5; --bg: rgba(53, 114, 165, 0.1);">
-              <i class="fa-brands fa-python"></i> Python
+            <span class="skill-tag" role="listitem" style="--accent: #3572A5; --bg: rgba(53, 114, 165, 0.1);">
+              <i class="fa-brands fa-python" aria-hidden="true"></i> Python
             </span>
-            <span class="skill-tag" style="--accent: #f7768e; --bg: rgba(247, 118, 142, 0.1);">
-              <i class="fa-brands fa-html5"></i> HTML/CSS
+            <span class="skill-tag" role="listitem" style="--accent: #f7768e; --bg: rgba(247, 118, 142, 0.1);">
+              <i class="fa-brands fa-html5" aria-hidden="true"></i> HTML/CSS
             </span>
-            <span class="skill-tag" style="--accent: #9ece6a; --bg: rgba(158, 206, 106, 0.1);">
-              <i class="fa-brands fa-linux"></i> Linux
+            <span class="skill-tag" role="listitem" style="--accent: #9ece6a; --bg: rgba(158, 206, 106, 0.1);">
+              <i class="fa-brands fa-linux" aria-hidden="true"></i> Linux
             </span>
           </div>
 
           <div class="profile__social">
-            <a class="social-btn" target="_blank" href="https://facebook.com/handuy.otaku" aria-label="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
+            <a class="social-btn" target="_blank" rel="noopener noreferrer" href="https://facebook.com/handuy.otaku" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a class="social-btn" target="_blank" href="https://github.com/hd929" aria-label="Github">
-              <i class="fa-brands fa-github"></i>
+            <a class="social-btn" target="_blank" rel="noopener noreferrer" href="https://github.com/hd929" aria-label="Github">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
             </a>
           </div>
         </div>
@@ -84,46 +116,46 @@
 
     <!-- Section Title -->
     <div class="section-header reveal">
-      <h2><i class="fa-solid fa-rocket"></i> Projects</h2>
-      <div class="section-line"></div>
+      <h2><i class="fa-solid fa-rocket" aria-hidden="true"></i> Projects</h2>
+      <div class="section-line" aria-hidden="true"></div>
     </div>
 
     <!-- Projects Section -->
     <nav class="projects-grid" aria-label="Project Links">
-      <a class="project-card reveal" href="/dev" style="--card-color: #7aa2f7">
-        <div class="project-icon"><i class="fa-solid fa-laptop-code"></i></div>
+      <a class="project-card reveal" href="/dev" style="--card-color: #7aa2f7" id="project-dev">
+        <div class="project-icon" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></div>
         <div class="project-info">
           <h3>Dev</h3>
           <p>Development corner</p>
         </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
+        <i class="fa-solid fa-arrow-right project-arrow" aria-hidden="true"></i>
       </a>
 
-      <a class="project-card reveal" href="/Shopee-Clone-F8" style="--card-color: #f7768e">
-        <div class="project-icon"><i class="fa-solid fa-store"></i></div>
+      <a class="project-card reveal" href="/Shopee-Clone-F8" style="--card-color: #f7768e" id="project-shopee">
+        <div class="project-icon" aria-hidden="true"><i class="fa-solid fa-store"></i></div>
         <div class="project-info">
           <h3>Shopee Pha kè</h3>
           <p>E-commerce UI Clone</p>
         </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
+        <i class="fa-solid fa-arrow-right project-arrow" aria-hidden="true"></i>
       </a>
 
-      <a class="project-card reveal" href="/MP3-Player" style="--card-color: #9ece6a">
-        <div class="project-icon"><i class="fa-solid fa-music"></i></div>
+      <a class="project-card reveal" href="/MP3-Player" style="--card-color: #9ece6a" id="project-music">
+        <div class="project-icon" aria-hidden="true"><i class="fa-solid fa-music"></i></div>
         <div class="project-info">
           <h3>Music Player</h3>
           <p>Interactive web player</p>
         </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
+        <i class="fa-solid fa-arrow-right project-arrow" aria-hidden="true"></i>
       </a>
 
-      <a class="project-card reveal" href="/decode" style="--card-color: #bb9af7">
-        <div class="project-icon"><i class="fa-solid fa-lock-open"></i></div>
+      <a class="project-card reveal" href="/decode" style="--card-color: #bb9af7" id="project-decode">
+        <div class="project-icon" aria-hidden="true"><i class="fa-solid fa-lock-open"></i></div>
         <div class="project-info">
           <h3>Decode</h3>
           <p>Encryption/Decryption tools</p>
         </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
+        <i class="fa-solid fa-arrow-right project-arrow" aria-hidden="true"></i>
       </a>
     </nav>
 
@@ -131,11 +163,11 @@
 
   <!-- Footer -->
   <footer class="footer reveal">
-    <p>Built with <span class="footer__heart">❤️</span> by <a href="https://github.com/hd929" target="_blank">P3nguinkyun</a></p>
+    <p>Built with <span class="footer__heart" aria-hidden="true">❤️</span> by <a href="https://github.com/hd929" target="_blank" rel="noopener noreferrer">P3nguinkyun</a></p>
   </footer>
 
-  <!-- Custom Scripts -->
-  <script src="./assets/scripts/index.js"></script>
+  <!-- Custom Scripts — defer for non-blocking -->
+  <script src="./assets/scripts/index.js" defer></script>
 </body>
 
 </html>
