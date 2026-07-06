@@ -6,6 +6,9 @@
 (() => {
   'use strict';
 
+  if (window.__particles_loaded) return;
+  window.__particles_loaded = true;
+
   const canvas = document.getElementById('particle-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d', { alpha: true });
