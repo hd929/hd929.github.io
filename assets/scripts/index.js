@@ -60,11 +60,12 @@
     return {
       x: Math.random() * canvasW,
       y: Math.random() * canvasH,
-      size: Math.random() * 1.8 + 0.5,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
-      opacity: Math.random() * 0.4 + 0.2,
-      hue: 220 + Math.random() * 60
+      size: Math.random() * 2.5 + 0.5,
+      vx: (Math.random() - 0.5) * 0.8,
+      vy: (Math.random() - 0.5) * 0.8,
+      opacity: Math.random() * 0.6 + 0.2,
+      hue: Math.random() * 360,
+      hueShift: (Math.random() - 0.5) * 0.5
     };
   }
 
@@ -103,6 +104,7 @@
       const p = particles[i];
       p.x += p.vx;
       p.y += p.vy;
+      p.hue = (p.hue + p.hueShift) % 360;
 
       // Bounce off edges
       if (p.x < 0 || p.x > canvasW) p.vx = -p.vx;
@@ -179,9 +181,10 @@
               const distSq = dx * dx + dy * dy;
 
               if (distSq < CONNECTION_DIST_SQ) {
-                const opacity = (1 - Math.sqrt(distSq) / CONNECTION_DIST) * 0.12;
+                const opacity = (1 - Math.sqrt(distSq) / CONNECTION_DIST) * 0.2;
+                const avgHue = (a.hue + b.hue) / 2;
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(122,162,247,${opacity})`;
+                ctx.strokeStyle = `hsla(${avgHue}, 80%, 70%, ${opacity})`;
                 ctx.moveTo(a.x, a.y);
                 ctx.lineTo(b.x, b.y);
                 ctx.stroke();
