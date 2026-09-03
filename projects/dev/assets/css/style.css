@@ -1,0 +1,548 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --foreground-color: #fce8f8;
+  --background-color: #0b0716;
+  --card-bg: rgba(30, 15, 50, 0.5);
+  --primary-color: #ff2a6d;
+  --secondary-color: #05d9e8;
+  --accent-color: #01ffc3;
+  --text-primary: #fce8f8;
+  --text-secondary: #b9a3d4;
+  --border-color: rgba(5, 217, 232, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(135deg, #090810 0%, #170d2b 50%, #280d3d 100%);
+  color: var(--text-primary);
+  font-family: 'Geist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  contain: strict;
+}
+
+.ambient-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 600px 400px at 15% 20%, rgba(189, 147, 249, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 500px at 85% 80%, rgba(255, 121, 198, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 50% 50%, rgba(255, 85, 85, 0.04) 0%, transparent 70%);
+  contain: strict;
+}
+
+/* ============================================
+   IDE CONTAINER LAYOUT
+   ============================================ */
+.ide-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   SIDEBAR / EXPLORER
+   ============================================ */
+.ide-sidebar {
+  background-color: rgba(18, 10, 33, 0.6);
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.explorer-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: 14px 20px;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid var(--border-color);
+  user-select: none;
+}
+
+.file-tree {
+  list-style: none;
+  padding: 12px 8px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.tree-folder {
+  margin-bottom: 4px;
+}
+
+.tree-folder.collapsed .folder-contents {
+  display: none;
+}
+
+.tree-folder.collapsed .folder-toggle i.fa-chevron-down {
+  transform: rotate(-90deg);
+}
+
+.folder-toggle i.fa-chevron-down {
+  transition: transform 0.2s ease;
+}
+
+.folder-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 6px;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.folder-toggle:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.folder-contents {
+  list-style: none;
+  padding-left: 16px;
+  margin-top: 2px;
+}
+
+.tree-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  padding: 6px 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tree-file:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+}
+
+.tree-file.active {
+  background: rgba(189, 147, 249, 0.08);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.sidebar-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.back-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-home-btn:hover {
+  color: var(--primary-color);
+}
+
+/* ============================================
+   MAIN EDITOR WORKSPACE
+   ============================================ */
+.ide-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(14, 8, 25, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.editor-tabs-header {
+  background-color: rgba(26, 15, 46, 0.7);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  height: 45px !important;
+  flex-shrink: 0 !important;
+  overflow-x: auto;
+}
+.editor-tabs-header::-webkit-scrollbar {
+  height: 3px;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 24px !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem !important;
+  color: var(--text-secondary);
+  border-right: 1px solid var(--border-color);
+  background-color: rgba(30, 15, 50, 0.4);
+  height: 100% !important;
+  user-select: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.editor-tab:hover {
+  background-color: rgba(255, 42, 109, 0.15); 
+  box-shadow: inset 0 -2px 10px rgba(255, 42, 109, 0.2);
+  color: var(--text-primary);
+}
+
+.editor-tab.active {
+  background-color: rgba(20, 10, 36, 0.8);
+  text-shadow: 0 0 10px var(--primary-color);
+  color: var(--text-primary);
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+}
+
+.editor-tab.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+}
+
+.editor-tab .tab-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.editor-tab .tab-close:hover {
+  background-color: rgba(255, 85, 85, 0.2);
+  color: var(--danger);
+}
+
+.editor-body.dashboard-active {
+  padding: 0 !important;
+}
+
+.editor-body {
+  flex-grow: 1;
+  padding: 40px 0 !important;
+  overflow-y: auto;
+  min-height: auto !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 840px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* ============================================
+   LUALINE STATUS BAR
+   ============================================ */
+.ide-status-bar {
+  height: 24px;
+  flex-shrink: 0;
+  background-color: rgba(15, 8, 28, 0.9);
+  border-top: 1px solid rgba(5, 217, 232, 0.3);
+  box-shadow: 0 -2px 15px rgba(5, 217, 232, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  user-select: none;
+  animation: neonPulse 2s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 -2px 10px rgba(5, 217, 232, 0.1); border-top-color: rgba(5, 217, 232, 0.2); }
+  100% { box-shadow: 0 -2px 25px rgba(5, 217, 232, 0.5); border-top-color: rgba(5, 217, 232, 0.6); }
+}
+
+.status-left,
+.status-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.mode {
+  padding: 0 12px;
+  font-weight: 700;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.mode--normal {
+  background-color: var(--primary-color);
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+.filepath {
+  padding: 0 12px;
+  color: var(--text-secondary);
+}
+
+.lang {
+  padding: 0 12px;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.encoding {
+  padding: 0 12px;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================
+   MARKDOWN ZERO-MD CONTENT STYLING
+   ============================================ */
+zero-md {
+  font-family: 'Geist', sans-serif;
+  display: block;
+}
+
+zero-md h1,
+zero-md h2,
+zero-md h3,
+zero-md h4,
+zero-md h5,
+zero-md h6 {
+  color: #ffffff;
+  margin: 1.5em 0 0.5em;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+zero-md h1 {
+  font-size: 2.2em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.3em;
+  margin-top: 0;
+}
+
+zero-md h2 {
+  font-size: 1.6em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 0.2em;
+}
+
+zero-md h3 {
+  font-size: 1.3em;
+}
+
+zero-md p {
+  margin: 1.2em 0;
+  line-height: 1.8;
+  color: var(--foreground-color);
+  font-size: 1.05rem;
+}
+
+zero-md code {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2em 0.45em;
+  border-radius: 6px;
+  font-size: 0.85em;
+  color: var(--accent-color);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+zero-md pre {
+  background: #1e1f29 !important;
+  border-radius: 12px;
+  padding: 1.25em;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+zero-md pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  border: none;
+}
+
+zero-md blockquote {
+  border-left: 4px solid var(--primary-color);
+  margin: 1.5em 0;
+  padding: 0.75em 1.25em;
+  background: rgba(189, 147, 249, 0.05);
+  border-radius: 6px;
+}
+
+zero-md ul,
+zero-md ol {
+  margin: 1em 0;
+  padding-left: 1.75em;
+}
+
+zero-md li {
+  margin: 0.5em 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+zero-md li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed rgba(189, 147, 249, 0.4);
+  transition: all 0.2s ease;
+}
+
+zero-md li a:hover {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+zero-md table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5em 0;
+  font-size: 0.9rem;
+}
+
+zero-md th,
+zero-md td {
+  border: 1px solid var(--border-color);
+  padding: 10px 14px;
+  text-align: left;
+}
+
+zero-md th {
+  background: rgba(255, 255, 255, 0.03);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+zero-md tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(189, 147, 249, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(189, 147, 249, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE LAYOUT
+   ============================================ */
+@media (max-width: 768px) {
+  .ide-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ide-sidebar {
+    display: none; /* Collapse explorer sidebar on mobile viewports */
+  }
+
+  .editor-body {
+    padding: 24px 20px !important;
+  }
+}
+
+/* ============================================
+   NEOVIM DASHBOARD
+   ============================================ */
+.neovim-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 69px);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.neovim-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+  white-space: pre;
+  filter: drop-shadow(0 0 10px rgba(189, 147, 249, 0.3));
+}
+
+.dashboard-links p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-family: 'Geist', sans-serif;
+}

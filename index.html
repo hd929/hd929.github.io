@@ -1,141 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="P3nguinkyun — Full-stack developer, Linux enthusiast & open-source advocate. Building performant software from C++ to the web. Explore my projects." />
-  <!-- Preconnect for performance -->
+  <meta name="description" content="P3nguinkyun — Full-stack developer." />
+
+  <!-- SEO & Social -->
+  <meta name="author" content="P3nguinkyun" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>P3nguinkyun | Portfolio</title>
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap"
-    rel="stylesheet" />
-  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Default CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>P3nguinkyun | Portfolio</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css?v=2.0" />
 </head>
 
 <body>
-  <!-- Particle animated background -->
-  <canvas id="particle-canvas"></canvas>
-  <div class="ambient-glow"></div>
-
-  <!-- Cursor glow effect -->
-  <div class="cursor-glow" id="cursor-glow"></div>
-
-  <!-- Main Content -->
-  <main class="container fade-in">
+  <main class="container">
 
     <!-- Profile Section -->
-    <section class="profile" id="vanilla-tilt-card">
-      <div class="profile__inner">
-        <div class="profile__avatar-container">
-          <div class="profile__avatar">
-            <img src="./assets/imgs/IMG_0028.JPG" alt="P3nguinkyun's Avatar" />
-            <div class="profile__status" title="Online"></div>
-          </div>
-        </div>
+    <section class="profile">
+      <div class="profile__avatar">
+        <img src="./assets/imgs/IMG_0028.JPG" alt="P3nguinkyun" width="120" height="120" loading="eager" />
+      </div>
 
-        <div class="profile__content">
-          <h1 class="profile__name">P3nguinkyun</h1>
-          <h2 class="profile__role">
-            <i class="fa-brands fa-linux"></i>
-            <span id="typing-text"></span><span class="typing-cursor"></span>
-          </h2>
-
-          <p class="profile__bio">
-            Full-stack developer and Linux enthusiast. I build clean, performant software — from low-level C++ to modern web applications. Open-source believer, Arch Linux user, and lifelong learner.
-          </p>
-
-          <div class="profile__skills">
-            <span class="skill-tag" style="--accent: #7aa2f7; --bg: rgba(122, 162, 247, 0.1);">
-              <i class="fa-solid fa-code"></i> C++
-            </span>
-            <span class="skill-tag" style="--accent: #e0af68; --bg: rgba(224, 175, 104, 0.1);">
-              <i class="fa-brands fa-js"></i> JavaScript
-            </span>
-            <span class="skill-tag" style="--accent: #3572A5; --bg: rgba(53, 114, 165, 0.1);">
-              <i class="fa-brands fa-python"></i> Python
-            </span>
-            <span class="skill-tag" style="--accent: #f7768e; --bg: rgba(247, 118, 142, 0.1);">
-              <i class="fa-brands fa-html5"></i> HTML/CSS
-            </span>
-            <span class="skill-tag" style="--accent: #9ece6a; --bg: rgba(158, 206, 106, 0.1);">
-              <i class="fa-brands fa-linux"></i> Linux
-            </span>
-          </div>
-
-          <div class="profile__social">
-            <a class="social-btn" target="_blank" href="https://facebook.com/handuy.otaku" aria-label="Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="social-btn" target="_blank" href="https://github.com/hd929" aria-label="Github">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
+      <div class="profile__content">
+        <h1 class="profile__name">P3nguinkyun</h1>
+        <h2 class="profile__role">Software Engineer</h2>
+        <p class="profile__bio">
+          I build clean, performant software. Open-source believer and lifelong learner.
+        </p>
+        <div class="profile__social">
+          <a target="_blank" href="https://github.com/hd929" aria-label="Github"><i class="fa-brands fa-github"></i></a>
+          <a target="_blank" href="https://facebook.com/handuy.otaku" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- Section Title -->
-    <div class="section-header reveal">
-      <h2><i class="fa-solid fa-rocket"></i> Projects</h2>
-      <div class="section-line"></div>
-    </div>
-
     <!-- Projects Section -->
-    <nav class="projects-grid" aria-label="Project Links">
-      <a class="project-card reveal" href="/dev" style="--card-color: #7aa2f7">
-        <div class="project-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <div class="project-info">
-          <h3>Dev</h3>
-          <p>Development corner</p>
-        </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
-      </a>
+    <section>
+      <h2 class="section-header">Projects</h2>
+      <div class="projects-grid">
+        <a class="project-card" href="/projects/dev">
+          <div class="project-info">
+            <h3>Dev</h3>
+            <p>Development corner & configurations</p>
+          </div>
+        </a>
 
-      <a class="project-card reveal" href="/Shopee-Clone-F8" style="--card-color: #f7768e">
-        <div class="project-icon"><i class="fa-solid fa-store"></i></div>
-        <div class="project-info">
-          <h3>Shopee Pha kè</h3>
-          <p>E-commerce UI Clone</p>
-        </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
-      </a>
+        <a class="project-card" href="/Shopee-Clone-F8">
+          <div class="project-info">
+            <h3>Shopee Clone</h3>
+            <p>E-commerce UI clone practice</p>
+          </div>
+        </a>
 
-      <a class="project-card reveal" href="/MP3-Player" style="--card-color: #9ece6a">
-        <div class="project-icon"><i class="fa-solid fa-music"></i></div>
-        <div class="project-info">
-          <h3>Music Player</h3>
-          <p>Interactive web player</p>
-        </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
-      </a>
+        <a class="project-card" href="/MP3-Player">
+          <div class="project-info">
+            <h3>Music Player</h3>
+            <p>Interactive web audio player</p>
+          </div>
+        </a>
 
-      <a class="project-card reveal" href="/decode" style="--card-color: #bb9af7">
-        <div class="project-icon"><i class="fa-solid fa-lock-open"></i></div>
-        <div class="project-info">
-          <h3>Decode</h3>
-          <p>Encryption/Decryption tools</p>
-        </div>
-        <i class="fa-solid fa-arrow-right project-arrow"></i>
-      </a>
-    </nav>
+        <a class="project-card" href="/projects/decode">
+          <div class="project-info">
+            <h3>Decode</h3>
+            <p>Encryption and decryption tools</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 P3nguinkyun</p>
+    </footer>
 
   </main>
-
-  <!-- Footer -->
-  <footer class="footer reveal">
-    <p>Built with <span class="footer__heart">❤️</span> by <a href="https://github.com/hd929" target="_blank">P3nguinkyun</a></p>
-  </footer>
-
-  <!-- Custom Scripts -->
-  <script src="./assets/scripts/index.js"></script>
 </body>
 
 </html>
