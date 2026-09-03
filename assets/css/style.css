@@ -1,11 +1,13 @@
 :root {
-  --bg-color: #fcfcfc;
-  --text-main: #111111;
-  --text-muted: #666666;
-  --border: #eaeaea;
-  --primary: #000000;
-  --primary-hover: #333333;
-  --card-bg: #ffffff;
+  color-scheme: dark;
+  /* Tokyo Night palette */
+  --bg-color: #1a1b26;
+  --text-main: #c0caf5;
+  --text-muted: #9aa5ce;
+  --border: #292e42;
+  --primary: #7aa2f7;
+  --primary-hover: #7dcfff;
+  --card-bg: #1f2335;
 }
 
 * {
@@ -140,8 +142,7 @@ body {
   margin-top: 40px;
 }
 
-@media (max-width: 600px) {
-  .profile {
+@media (max-width: 600px) {  .profile {
     flex-direction: column;
     text-align: center;
   }
@@ -149,4 +150,8 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+}
+
+::selection {
+  background: rgba(122, 162, 247, 0.3);
 }
