@@ -1,27 +1,152 @@
 :root {
-  /* Enhanced Vibrant Palette - More Special & Eye-catching */
-  --bg-color: #0f0f23; /* Deeper, richer background */
-  --bg-gradient-1: #0a0a1f;
-  --bg-gradient-2: #15153b;
-  --card-bg: rgba(25, 25, 45, 0.7); /* Slightly lighter cards for better contrast */
-  --card-border: rgba(138, 43, 226, 0.3); /* Vibrant blue-violet */
+  --bg-color: #fcfcfc;
+  --text-main: #111111;
+  --text-muted: #666666;
+  --border: #eaeaea;
+  --primary: #000000;
+  --primary-hover: #333333;
+  --card-bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Geist', -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Profile */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile__avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.profile__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile__name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.profile__role {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.profile__bio {
+  color: var(--text-muted);
+  max-width: 500px;
+  margin-top: 8px;
+}
+
+.profile__social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.profile__social a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: opacity 0.2s;
+}
+
+.profile__social a:hover {
+  opacity: 0.6;
+}
+
+/* Projects */
+.section-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: border-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.project-info p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
   
-  --text-main: #e6e6ff; /* Brighter text */
-  --text-muted: #b0b0d9;
-  
-  /* Enhanced primary colors - more vibrant and special */
-  --primary: #ff6b9d; /* Vibrant pink-red */
-  --primary-hover: #ff87b3;
-  --secondary: #4ecdc4; /* Vibrant teal */
-  --success: #ffe66d; /* Vibrant yellow */
-  --warning: #ff9f43; /* Vibrant orange */
-  --danger: #ff6b6b; /* Vibrant red-coral */
-  
-  /* Additional accent colors for variety */
-  --accent-purple: #9d4edd;
-  --accent-cyan: #00f5d4;
-  --accent-lime: #a8e6cf;
-  --accent-orange: #ff9f1c;
-  
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
